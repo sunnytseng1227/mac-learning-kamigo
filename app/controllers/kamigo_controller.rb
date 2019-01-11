@@ -164,27 +164,27 @@ class KamigoController < ApplicationController
                     "imageSize": "cover",
                     "imageBackgroundColor": "#FFFFFF",
                     "title": "常見問題",
-                    "text": "我的好友推薦序號為 \n 12345",
+                    
                     "defaultAction": {
                         "type": "message",
-                        "label": "View detail",
-                        "text": "0"
+                        "label": "我的好友推薦序號",
+                        "text": "您的好友推薦序號為『12345』，\n分享給好友首次消費可取得優惠唷"
                     },
                     "actions": [
                         {
-                          "type": "message",
+                          "type": "我的好友推薦序號",
                           "label": "第一個按鈕",
-                          "text": "1"
+                          "text": "您的好友推薦序號為『12345』，\n分享給好友首次消費可取得優惠唷"
                         },
                         {
                           "type": "message",
-                          "label": "第二個按鈕",
-                          "text": "2"
+                          "label": "有什麼服務",
+                          "text": "有什麼服務"
                         },
                         {
-                          "type": "message",
-                          "label": "第三個按鈕",
-                          "text": "3"
+                          "type": "postback",
+                          "label": "推薦給朋友",
+                          "data": "action=add&itemid=222"
                         }
                     ]
                 }
