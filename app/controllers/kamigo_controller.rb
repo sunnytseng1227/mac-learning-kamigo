@@ -90,15 +90,14 @@ class KamigoController < ApplicationController
             when "我有問題"
               message = {
                 "type": "template",
-                "altText": "在不支援顯示樣板的地方顯示的文字",
+                "altText": "您有新訊息",
                 "template": {
                   "type": "buttons",
                   "imageAspectRatio": "rectangle",
                   "imageSize": "contain",
                   "thumbnailImageUrl": "https://cdn2.ettoday.net/images/3826/c3826788.jpg",
-                  "imageBackgroundColor": "#a8e8fb",
-                  "title": "更粗的標題",
-                  "text": "標題文字",
+                  "imageBackgroundColor": "#ffffff",
+                  "title": "常見問題",
                   "defaultAction": {
                     "type": "message",
                     "label": "點到圖片或標題",
@@ -107,23 +106,18 @@ class KamigoController < ApplicationController
                   "actions": [
                     {
                       "type": "message",
-                      "label": "第一個按鈕",
-                      "text": "1"
+                      "label": "有什麼服務",
+                      "text": "有什麼服務"
                     },
                     {
                       "type": "message",
-                      "label": "第二個按鈕",
-                      "text": "2"
+                      "label": "我的好友推薦序號",
+                      "text": "你的好友推薦序號為"
                     },
                     {
                       "type": "message",
-                      "label": "第三個按鈕",
+                      "label": "推薦給朋友",
                       "text": "3"
-                    },
-                    {
-                      "type": "message",
-                      "label": "第四個按鈕",
-                      "text": "4"
                     }
                   ]
                 }
