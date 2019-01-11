@@ -88,7 +88,7 @@ class KamigoController < ApplicationController
             when "有什麼服務"
               {
                 "type": "template",
-                "altText": "this is a carousel template",
+                "altText": "您有新訊息",
                 "template": {
                     "type": "carousel",
                     "columns": [
@@ -96,7 +96,7 @@ class KamigoController < ApplicationController
                           "thumbnailImageUrl": "https://cdn2.ettoday.net/images/3826/d3826516.jpg",
                           "imageBackgroundColor": "#FFFFFF",
                           "title": "鏟屎",
-                          "text": "description",
+                          
                           "defaultAction": {
                               "type": "uri",
                               "label": "View detail",
@@ -104,19 +104,14 @@ class KamigoController < ApplicationController
                           },
                           "actions": [
                               {
-                                  "type": "postback",
+                                  "type": "message",
                                   "label": "我要預約",
-                                  "data": "action=booking&itemid=111"
+                                  "text": "奴才 ～ 動作快！清乾淨～"
                               },
                               {
                                   "type": "postback",
-                                  "label": "Add to cart",
+                                  "label": "想要瞭解",
                                   "data": "action=add&itemid=111"
-                              },
-                              {
-                                  "type": "uri",
-                                  "label": "View detail",
-                                  "uri": "http://example.com/page/111"
                               }
                           ]
                         },
@@ -132,19 +127,14 @@ class KamigoController < ApplicationController
                           },
                           "actions": [
                               {
-                                  "type": "postback",
+                                  "type": "message",
                                   "label": "我要預約",
-                                  "data": "action=booking&itemid=222"
+                                  "text": "奴才～碗空空沒看到嗎！怒怒"
                               },
                               {
                                   "type": "postback",
                                   "label": "Add to cart",
                                   "data": "action=add&itemid=222"
-                              },
-                              {
-                                  "type": "uri",
-                                  "label": "View detail",
-                                  "uri": "http://example.com/page/222"
                               }
                           ]
                         }
@@ -164,7 +154,7 @@ class KamigoController < ApplicationController
                     "imageSize": "cover",
                     "imageBackgroundColor": "#FFFFFF",
                     "title": "常見問題",
-                    "text": "我的好友推薦序號為 \n 12345",
+                  
                     "defaultAction": {
                         "type": "message",
                         "label": "我的好友推薦序號",
@@ -173,8 +163,8 @@ class KamigoController < ApplicationController
                     "actions": [
                         {
                           "type": "message",
-                          "label": "第一個按鈕",
-                          "text": "您的好友推薦序號為『12345』，\n分享給好友首次消費可取得優惠唷"
+                          "label": "我的好友推薦序號",
+                          "text": "您的好友推薦序號為\n『12345』\n\n快分享給好友\n首次消費可取得優惠唷"
                         },
                         {
                           "type": "message",
