@@ -168,11 +168,11 @@ class KamigoController < ApplicationController
                     "defaultAction": {
                         "type": "message",
                         "label": "我的好友推薦序號",
-                        "text": "0"
+                        "text": "您的好友推薦序號為『12345』，\n分享給好友首次消費可取得優惠唷"
                     },
                     "actions": [
                         {
-                          "type": "我的好友推薦序號",
+                          "type": "message",
                           "label": "第一個按鈕",
                           "text": "您的好友推薦序號為『12345』，\n分享給好友首次消費可取得優惠唷"
                         },
