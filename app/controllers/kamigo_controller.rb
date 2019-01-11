@@ -164,11 +164,11 @@ class KamigoController < ApplicationController
                     "imageSize": "cover",
                     "imageBackgroundColor": "#FFFFFF",
                     "title": "常見問題",
-                    
+                    "text": "我的好友推薦序號為 \n 12345",
                     "defaultAction": {
                         "type": "message",
                         "label": "我的好友推薦序號",
-                        "text": "您的好友推薦序號為『12345』，\n分享給好友首次消費可取得優惠唷"
+                        "text": "0"
                     },
                     "actions": [
                         {
