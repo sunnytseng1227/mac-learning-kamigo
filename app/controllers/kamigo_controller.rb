@@ -93,11 +93,12 @@ class KamigoController < ApplicationController
                 "altText": "您有新訊息",
                 "template": {
                   "type": "buttons",
-                  "imageAspectRatio": "rectangle",
-                  "imageSize": "contain",
+                  "imageAspectRatio": "square",
+                  "imageSize": "cover",
                   "thumbnailImageUrl": "https://cdn2.ettoday.net/images/3826/c3826788.jpg",
                   "imageBackgroundColor": "#ffffff",
                   "title": "常見問題",
+                  "text": "標題文字",
                   "defaultAction": {
                     "type": "message",
                     "label": "點到圖片或標題",
