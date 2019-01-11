@@ -97,11 +97,7 @@ class KamigoController < ApplicationController
                           "imageBackgroundColor": "#FFFFFF",
                           "title": "鏟屎",
                           
-                          "defaultAction": {
-                              "type": "uri",
-                              "label": "View detail",
-                              "uri": "http://example.com/page/123"
-                          },
+                          
                           "actions": [
                               {
                                   "type": "message",
@@ -119,17 +115,12 @@ class KamigoController < ApplicationController
                           "thumbnailImageUrl": "https://cdn2.ettoday.net/images/3826/c3826788.jpg",
                           "imageBackgroundColor": "#000000",
                           "title": "上飯",
-                          "text": "description",
-                          "defaultAction": {
-                              "type": "uri",
-                              "label": "View detail",
-                              "uri": "http://example.com/page/222"
-                          },
+                          
                           "actions": [
                               {
                                   "type": "message",
                                   "label": "我要預約",
-                                  "text": "奴才～碗空空沒看到嗎！怒怒"
+                                  "text": "奴才～碗空空！我怒怒"
                               },
                               {
                                   "type": "postback",
