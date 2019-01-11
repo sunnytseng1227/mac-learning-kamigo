@@ -60,7 +60,7 @@ class KamigoController < ApplicationController
            message_txt = message['text']
             case message_txt
             when "我要看兔仔"
-                 {
+                message =  {
                    "type": "template",
                    "altText": "this is a image carousel template",
                    "template": {
@@ -88,39 +88,44 @@ class KamigoController < ApplicationController
             
               
             when "我有問題"
-              {
+              message = {
                 "type": "template",
-                "altText": "您有新訊息",
+                "altText": "在不支援顯示樣板的地方顯示的文字",
                 "template": {
-                    "type": "buttons",
-                    "thumbnailImageUrl": "https://cdn2.ettoday.net/images/3826/c3826788.jpg",
-                    "imageAspectRatio": "square",
-                    "imageSize": "cover",
-                    "imageBackgroundColor": "#FFFFFF",
-                    "title": "常見問題",
-                  
-                    "defaultAction": {
-                        "type": "message",
-                        "label": "我的好友推薦序號",
-                        "text": "您的好友推薦序號為『12345』，\n分享給好友首次消費可取得優惠唷"
+                  "type": "buttons",
+                  "imageAspectRatio": "rectangle",
+                  "imageSize": "contain",
+                  "thumbnailImageUrl": "https://cdn2.ettoday.net/images/3826/c3826788.jpg",
+                  "imageBackgroundColor": "#a8e8fb",
+                  "title": "更粗的標題",
+                  "text": "標題文字",
+                  "defaultAction": {
+                    "type": "message",
+                    "label": "點到圖片或標題",
+                    "text": "0"
+                  },
+                  "actions": [
+                    {
+                      "type": "message",
+                      "label": "第一個按鈕",
+                      "text": "1"
                     },
-                    "actions": [
-                        {
-                          "type": "message",
-                          "label": "我的好友推薦序號",
-                          "text": "您的好友推薦序號為\n『12345』\n\n快分享給好友\n首次消費可取得優惠唷"
-                        },
-                        {
-                          "type": "message",
-                          "label": "有什麼服務",
-                          "text": "有什麼服務"
-                        },
-                        {
-                          "type": "postback",
-                          "label": "推薦給朋友",
-                          "data": "action=add&itemid=222"
-                        }
-                    ]
+                    {
+                      "type": "message",
+                      "label": "第二個按鈕",
+                      "text": "2"
+                    },
+                    {
+                      "type": "message",
+                      "label": "第三個按鈕",
+                      "text": "3"
+                    },
+                    {
+                      "type": "message",
+                      "label": "第四個按鈕",
+                      "text": "4"
+                    }
+                  ]
                 }
               }
 
