@@ -88,7 +88,7 @@ class KamigoController < ApplicationController
             when "有什麼服務"
               {
                 "type": "template",
-                "altText": "您有新訊息",
+                "altText": "this is a carousel template",
                 "template": {
                     "type": "carousel",
                     "columns": [
@@ -96,18 +96,27 @@ class KamigoController < ApplicationController
                           "thumbnailImageUrl": "https://cdn2.ettoday.net/images/3826/d3826516.jpg",
                           "imageBackgroundColor": "#FFFFFF",
                           "title": "鏟屎",
-                          
-                          
+                          "text": "description",
+                          "defaultAction": {
+                              "type": "uri",
+                              "label": "View detail",
+                              "uri": "http://example.com/page/123"
+                          },
                           "actions": [
                               {
-                                  "type": "message",
+                                  "type": "postback",
                                   "label": "我要預約",
-                                  "text": "奴才 ～ 動作快！清乾淨～"
+                                  "data": "action=booking&itemid=111"
                               },
                               {
                                   "type": "postback",
-                                  "label": "想要瞭解",
+                                  "label": "Add to cart",
                                   "data": "action=add&itemid=111"
+                              },
+                              {
+                                  "type": "uri",
+                                  "label": "View detail",
+                                  "uri": "http://example.com/page/111"
                               }
                           ]
                         },
@@ -115,17 +124,27 @@ class KamigoController < ApplicationController
                           "thumbnailImageUrl": "https://cdn2.ettoday.net/images/3826/c3826788.jpg",
                           "imageBackgroundColor": "#000000",
                           "title": "上飯",
-                          
+                          "text": "description",
+                          "defaultAction": {
+                              "type": "uri",
+                              "label": "View detail",
+                              "uri": "http://example.com/page/222"
+                          },
                           "actions": [
                               {
-                                  "type": "message",
+                                  "type": "postback",
                                   "label": "我要預約",
-                                  "text": "奴才～碗空空！我怒怒"
+                                  "data": "action=booking&itemid=222"
                               },
                               {
                                   "type": "postback",
                                   "label": "Add to cart",
                                   "data": "action=add&itemid=222"
+                              },
+                              {
+                                  "type": "uri",
+                                  "label": "View detail",
+                                  "uri": "http://example.com/page/222"
                               }
                           ]
                         }
