@@ -85,7 +85,9 @@ class KamigoController < ApplicationController
                        ]
                    }
                  }
-            
+             
+
+              
               
             when "我有問題"
               message = {
@@ -111,9 +113,9 @@ class KamigoController < ApplicationController
                       "text": "有什麼服務"
                     },
                     {
-                      "type": "message",
+                      "type": "postback",
                       "label": "我的好友推薦序號",
-                      "text": "你的好友推薦序號為"
+                      "data": "myrecommend"
                     },
                     {
                       "type": "message",
@@ -130,6 +132,12 @@ class KamigoController < ApplicationController
                 text:  message_txt + '~'
               }
             end
+        when "postback"
+          message = {
+            type : "text"
+            text : "收到一個指令"
+          }
+          
         when "image"
            message = {
           type: 'text',
