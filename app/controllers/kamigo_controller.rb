@@ -32,10 +32,10 @@ class KamigoController < ApplicationController
     message_type = message['type']
 
     if message.nil?
-      postback_mes = params['events'][0]['postback']
+      
       message ={
          type: 'text',
-         text:  postback_mes['data'] + '~'
+         text:   '~1234'
       }
 
     else 
