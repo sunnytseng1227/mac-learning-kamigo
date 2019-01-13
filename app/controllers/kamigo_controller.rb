@@ -31,14 +31,7 @@ class KamigoController < ApplicationController
     message = params['events'][0]['message']
     message_type = message['type']
 
-    if message.nil?
-      
-      message ={
-         type: 'text',
-         text:   '~1234'
-      }
-
-    else 
+    
 
      case message_type
         when "text"
@@ -114,7 +107,7 @@ class KamigoController < ApplicationController
             else
                  {
                 type: 'text',
-                text:  message_txt + '~'
+                text:  message_txt + '~~~'
               }
             end
         
@@ -152,13 +145,15 @@ class KamigoController < ApplicationController
         }
 
       end
-    end
+    
   end
 
   # 傳送訊息到 line
   def reply_to_line(message)
     # 取得 reply token
-    reply_token = params['events'][0]['replyToken']
+    events = line.parse_events_from(body)
+    #reply_token = params['events'][0]['replyToken']
+     reply_token = event['replyToken']
     # 傳送訊息
     line.reply_message(reply_token, message)
   end
