@@ -31,13 +31,15 @@ class KamigoController < ApplicationController
                 text: event.message['text']
               }
               client.reply_message(event['replyToken'], message)
+
+              when Line::Bot::Event::MessageType::Image
+              message_id = event.message['id']
+              response = client.get_message_content(message_id)
+              tf = Tempfile.open("content")
+              tf.write(response.body)
+              line_reply_text(event, "[MessageType::IMAGE]\nid:#{message_id}\nreceived #{tf.size} bytes data")
             end
-            when Line::Bot::Event::MessageType::Image
-            message_id = event.message['id']
-            response = client.get_message_content(message_id)
-            tf = Tempfile.open("content")
-            tf.write(response.body)
-            line_reply_text(event, "[MessageType::IMAGE]\nid:#{message_id}\nreceived #{tf.size} bytes data")
+
 
           end
         }
