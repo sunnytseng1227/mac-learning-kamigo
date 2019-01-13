@@ -12,22 +12,7 @@ class KamigoController < ApplicationController
 
 
   def callback
-    body = request.body.read
-    events = line.parse_events_from(body)
-
-    events.each { |event|
-      case event
-      when Line::Bot::Event::Message
-        case event.type
-        when Line::Bot::Event::MessageType::Text
-          message = {
-            type: 'text',
-            text: event.message['text'] + "!!!"
-          }
-          line.reply_message(event['replyToken'], message)
-        end
-      end
-    }
+    
 
 
     head:ok
