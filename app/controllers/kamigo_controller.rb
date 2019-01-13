@@ -12,6 +12,26 @@ class KamigoController < ApplicationController
 
 
   def webhook2
+
+    body = request.body.read
+
+    
+
+    events = line.parse_events_from(body)
+
+    events.each { |event|
+      case event
+      when Line::Bot::Event::Message
+        case event.type
+        when Line::Bot::Event::MessageType::Text
+          message = {
+            type: 'text',
+            text: event.message['text'] ＋"～～2"
+          }
+          line.reply_message(event['replyToken'], message)
+        end
+      end
+    }
     
 
 
