@@ -38,7 +38,13 @@ class KamigoController < ApplicationController
         head :ok
       end
     
-
+      def line_reply_text(event, texts)
+      texts = [texts] if texts.is_a?(String)
+      client.reply_message(
+        event['replyToken'],
+        texts.map { |text| {type: 'text', text: text} }
+      )
+end
 
 
   def webhook
@@ -51,6 +57,17 @@ class KamigoController < ApplicationController
 
   end
 
+  def handle_message(event)
+    case event.type
+    when Line::Bot::Event::MessageType::Image
+    message_id = event.message['id']
+    response = client.get_message_content(message_id)
+    tf = Tempfile.open("content")
+    tf.write(response.body)
+    reply_text(event, "[MessageType::IMAGE]\nid:#{message_id}\nreceived #{tf.size} bytes data")  
+    end
+    
+  end
   
 
   # 取得對方說的話
