@@ -53,8 +53,17 @@ class KamigoController < ApplicationController
 
   # 取得對方說的話
   def received_text
+
+    
+
+
     message = params['events'][0]['message']
     message_type = message['type']
+
+    if message.nil?
+    nil
+    else 
+
      case message_type
         when "text"
            message_txt = message['text']
@@ -167,7 +176,7 @@ class KamigoController < ApplicationController
         }
 
       end
-
+    end
   end
 
   # 傳送訊息到 line
