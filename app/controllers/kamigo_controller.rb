@@ -37,7 +37,7 @@ class KamigoController < ApplicationController
             response = client.get_message_content(message_id)
             tf = Tempfile.open("content")
             tf.write(response.body)
-            reply_text(event, "[MessageType::IMAGE]\nid:#{message_id}\nreceived #{tf.size} bytes data")
+            line_reply_text(event, "[MessageType::IMAGE]\nid:#{message_id}\nreceived #{tf.size} bytes data")
 
           end
         }
