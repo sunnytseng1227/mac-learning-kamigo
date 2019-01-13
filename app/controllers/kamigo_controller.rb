@@ -134,8 +134,8 @@ class KamigoController < ApplicationController
             end
         when "postback"
           message = {
-            type : "text"
-            text : "收到一個指令"
+            type: "text"
+            tex : "收到一個指令"
           }
           
         when "image"
