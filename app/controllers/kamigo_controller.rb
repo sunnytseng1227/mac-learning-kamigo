@@ -3,45 +3,15 @@ class KamigoController < ApplicationController
   protect_from_forgery with: :null_session
 
   # Line Bot API 物件初始化
-  def line
-    @line ||= Line::Bot::Client.new { |config|
+  def client
+    @client ||= Line::Bot::Client.new { |config|
       config.channel_secret = '4287d0f92b9461dd4f15c8448e496b0b'
       config.channel_token = '13SitYEKLmxGk/MTzMCPFWmh5q3BXeJaxYAfWS/kAp2rHKCc7MieOD1qnuzGcAyyledP+jpkU/gxv7309f5AyPLqdnvzj/AkEWkmd3kXVAXBNowxgjHKl9zNfrlibaIpAD6NgX5rRZB4+cfbd/2M+gdB04t89/1O/w1cDnyilFU='
     }
   end
 
 
-  def webhook2
-
-    body = request.body.read
-
-    signature = request.env['HTTP_X_LINE_SIGNATURE']
-    unless client.validate_signature(body, signature)
-      error 400 do 'Bad Request' end
-    end
-
-    events = line.parse_events_from(body)
-
-    events.each { |event|
-      case event
-      when Line::Bot::Event::Message
-        case event.type
-        when Line::Bot::Event::MessageType::Text
-          message = {
-            type: 'text',
-            text: event.message['text'] ＋"～～2"
-          }
-          line.reply_message(event['replyToken'], message)
-        end
-      end
-    }
-    
-
-
-    head:ok
-    
-
-  end
+  
 
 
   def webhook
@@ -187,7 +157,7 @@ class KamigoController < ApplicationController
     # 取得 reply token
     reply_token = params['events'][0]['replyToken']
     # 傳送訊息
-    line.reply_message(reply_token, message)
+    client.reply_message(reply_token, message)
   end
 
 
