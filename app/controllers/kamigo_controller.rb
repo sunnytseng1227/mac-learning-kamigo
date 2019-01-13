@@ -47,10 +47,9 @@ class KamigoController < ApplicationController
                            {
                              "imageUrl": "https://cdn2.ettoday.net/images/3826/d3826516.jpg",
                              "action": {
-                               "type": "datetimepicker",
+                               "type": "postback",
                                "label": "Buy",
-                               "data": "action=buy&itemid=111",
-                               "mode": "datetime"
+                               "data": "action=buy&itemid=111"
                              }
                            },
                            {
