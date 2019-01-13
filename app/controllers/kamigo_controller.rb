@@ -31,7 +31,6 @@ class KamigoController < ApplicationController
     message = params['events'][0]['message']
     message_type = message['type']
 
-    
 
      case message_type
         when "text"
