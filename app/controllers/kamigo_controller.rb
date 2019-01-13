@@ -25,15 +25,7 @@ class KamigoController < ApplicationController
   # 取得對方說的話
   def received_text
 
-    events = client.parse_events_from(body)
-
-    if event['postback']['data'] 
-      message = {
-          type: 'text',
-          text:  "postback~"
-        }
-
-    end
+    
 
 
     message = params['events'][0]['message']
