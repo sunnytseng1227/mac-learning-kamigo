@@ -11,7 +11,7 @@ class KamigoController < ApplicationController
   end
 
 
-  def callback
+  def webhook2
     
 
 
