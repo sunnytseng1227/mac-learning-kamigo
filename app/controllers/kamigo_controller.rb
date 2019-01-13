@@ -132,13 +132,9 @@ class KamigoController < ApplicationController
                 text:  message_txt + '~'
               }
             end
-        when "postback"
-          message = {
-            type: "text"
-            tex : "收到一個指令"
-          }
+        
           
-        when "image"
+      when "image"
            message = {
           type: 'text',
           text:  "是一張圖"
