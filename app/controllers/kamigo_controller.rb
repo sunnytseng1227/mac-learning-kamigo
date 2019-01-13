@@ -34,7 +34,10 @@ class KamigoController < ApplicationController
 
               when Line::Bot::Event::MessageType::Image
               
-              line_reply_text(event, "是一張圖")
+              message = {
+             type: 'text',
+          text:  "是一張圖"
+        }client.reply_message(event['replyToken'], message)
             end
 
 
