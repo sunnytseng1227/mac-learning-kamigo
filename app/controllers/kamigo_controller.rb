@@ -29,7 +29,10 @@ class KamigoController < ApplicationController
 
 
     message = params['events'][0]['message']
+    postback = params['events'][0]['postback']
     message_type = message['type']
+
+
 
 
      case message_type
@@ -64,7 +67,17 @@ class KamigoController < ApplicationController
                  }
              
 
-              
+            when "我要預約"
+              message ={  
+              "type":"datetimepicker",
+              "label":"按鈕顯示的文字",
+              "data":"偷偷傳回的訊息",
+              "mode":"datetime",
+              "initial":"2017-12-25t00:00",
+              "max":"2018-01-24t23:59",
+              "min":"2017-12-25t00:00"
+            }
+                      
               
             when "我有問題"
               message = {
