@@ -25,7 +25,15 @@ class KamigoController < ApplicationController
   # 取得對方說的話
   def received_text
 
-    
+    events = client.parse_events_from(body)
+
+    if event['postback']['data'] 
+      message = {
+          type: 'text',
+          text:  "postback~"
+        }
+
+    end
 
 
     message = params['events'][0]['message']
@@ -107,7 +115,7 @@ class KamigoController < ApplicationController
             else
                  {
                 type: 'text',
-                text:  message_txt + '~~~'
+                text:  message_txt + '~'
               }
             end
         
@@ -151,9 +159,7 @@ class KamigoController < ApplicationController
   # 傳送訊息到 line
   def reply_to_line(message)
     # 取得 reply token
-    events = line.parse_events_from(body)
-    #reply_token = params['events'][0]['replyToken']
-     reply_token = event['replyToken']
+    reply_token = params['events'][0]['replyToken']
     # 傳送訊息
     line.reply_message(reply_token, message)
   end
