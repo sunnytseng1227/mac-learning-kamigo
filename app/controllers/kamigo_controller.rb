@@ -29,9 +29,7 @@ class KamigoController < ApplicationController
 
 
     message = params['events'][0]['message']
-    postback = params['events'][0]['postback']
     message_type = message['type']
-
 
 
 
@@ -51,7 +49,7 @@ class KamigoController < ApplicationController
                              "action": {
                                "type": "datetimepicker",
                                "label": "Buy",
-                               "data": "action=buy&itemid=111"
+                               "data": "action=buy&itemid=111",
                                "mode": "datetime"
                              }
                            },
