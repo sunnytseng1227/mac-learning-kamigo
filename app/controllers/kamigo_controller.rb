@@ -91,6 +91,8 @@ class KamigoController < ApplicationController
     message = {
         type: "bubble",
         altText: "this is a flex message",
+        contents: {
+          type: "bubble",
           header: {
                       type: "box",
                       layout: "horizontal",
@@ -139,6 +141,7 @@ class KamigoController < ApplicationController
             ]
           }
         }
+      }
       
 
 
