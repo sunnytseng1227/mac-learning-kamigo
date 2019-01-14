@@ -139,16 +139,34 @@ class KamigoController < ApplicationController
                     size: "sm",
                     gravity:"bottom"
 
+                  },
+                  {
+                    type: "image",
+                    url: "https://pic1.86shop.org/beautychic/1108-1015/1108lips.jpg",
+                    aspectRatio: "4:3",
+                    aspectMode:"cover",
+                    size: "sm",
+                    gravity:"bottom"
+
                   }
                 ]
               },
 
-              
+
               {
                 type: "box",
                 layout: "vertical",
                 flex:2,
                 contents:[
+                  {
+                    type: "text",
+                    text: "讓男生立馬中招の十萬伏特電眼！",
+                    wrap: true,
+                    flex:1,
+                    size: "md",
+                    gravity:"center"
+
+                  },
                   {
                     type: "text",
                     text: "讓男生立馬中招の十萬伏特電眼！",
