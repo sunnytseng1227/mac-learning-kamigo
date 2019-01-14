@@ -142,6 +142,8 @@ class KamigoController < ApplicationController
                   }
                 ]
               },
+
+              
               {
                 type: "box",
                 layout: "vertical",
@@ -155,9 +157,6 @@ class KamigoController < ApplicationController
                     size: "md",
                     gravity:"center"
 
-                  },
-                  {
-                    "type": "separator"
                   }
                 ]
               }
