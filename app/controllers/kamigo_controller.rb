@@ -120,14 +120,15 @@ class KamigoController < ApplicationController
                     }
             
           },
+
+          
           body: {
             type: "box",
             layout: "horizontal",
-            spacing: "md",
             contents: [
               {
                 type: "box",
-                text: "vertical",
+                layout: "vertical",
                 flex:1,
                 contents:[
                   {
@@ -143,6 +144,9 @@ class KamigoController < ApplicationController
               }
             ]
           },
+
+
+          
           footer: {
             type: "box",
             layout: "horizontal",
