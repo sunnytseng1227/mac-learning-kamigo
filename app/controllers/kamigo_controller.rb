@@ -23,32 +23,307 @@ class KamigoController < ApplicationController
 
         events.each { |event|
           case event
-          when Line::Bot::Event::Message
-            case event.type
-            when Line::Bot::Event::MessageType::Text
-              message = {
-                type: 'text',
-                text: event.message['text']
-              }
-              client.reply_message(event['replyToken'], message)
-
-              
+            when Line::Bot::Event::Message
+              case event.type
+                when Line::Bot::Event::MessageType::Text
+                  mes_Text(event)
+                when Line::Bot::Event::MessageType::Image
+                  mes_Image(event)
+                when Line::Bot::Event::MessageType::Audio
+                  mes_Audio(event)
+                when Line::Bot::Event::MessageType::File
+                  mes_File(event)
+                when Line::Bot::Event::MessageType::Location
+                  mes_Location(event)
+                when Line::Bot::Event::MessageType::Sticker
+                  mes_Sticker(event)
+                else
+                  mes_Unsupport(event)
+              end
+            when Line::Bot::Event::Postback
+              Postback_action(event)
             end
-
-
-          end
         }
-
+        # 回應 200
         head :ok
-      end
-    
-      def line_reply_text(event, texts)
-      texts = [texts] if texts.is_a?(String)
-      client.reply_message(
-        event['replyToken'],
-        texts.map { |text| {type: 'text', text: text} }
-      )
-end
+  end
+
+  def  Postback_action(event)
+    postback_type = event['postback']['data']
+    case postback_type
+    when "Call_for_service"
+      template_service(event)
+    when "more_1"
+      template_more_1(event)
+    end
+  end
+
+  def template_1(event)
+    message =  {
+       type: "template",
+       altText: "您有新訊息 ~ ",
+       template: {
+           type: "image_carousel",
+           columns: [
+               {
+                 imageUrl: "https://cdn2.ettoday.net/images/3826/d3826516.jpg",
+                 action: {
+                   type: "postback",
+                   label: "點我",
+                   data: "Call_for_service"
+                 }
+               },
+               {
+                 imageUrl: "https://cdn2.ettoday.net/images/3826/c3826788.jpg",
+                 action: {
+                   type: "message",
+                   label: "Yes",
+                   text: "yes"
+                 }
+               }
+           ]
+       }
+     }
+     client.reply_message(event['replyToken'], message)
+  end
+  def template_more_1(event)
+    message = {
+      "type": "bubble",
+      "header": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "NEWS DIGEST",
+            "weight": "bold",
+            "color": "#aaaaaa",
+            "size": "sm"
+          }
+        ]
+      },
+      "hero": {
+        "type": "image",
+        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_4_news.png",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "uri": "http://linecorp.com/"
+        }
+      },
+      "body": {
+        "type": "box",
+        "layout": "horizontal",
+        "spacing": "md",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 1,
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/02_1_news_thumbnail_1.png",
+                "aspectMode": "cover",
+                "aspectRatio": "4:3",
+                "size": "sm",
+                "gravity": "bottom"
+              },
+              {
+                "type": "image",
+                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/02_1_news_thumbnail_2.png",
+                "aspectMode": "cover",
+                "aspectRatio": "4:3",
+                "margin": "md",
+                "size": "sm"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 2,
+            "contents": [
+              {
+                "type": "text",
+                "text": "7 Things to Know for Today",
+                "gravity": "top",
+                "size": "xs",
+                "flex": 1
+              },
+              {
+                "type": "separator"
+              },
+              {
+                "type": "text",
+                "text": "Hay fever goes wild",
+                "gravity": "center",
+                "size": "xs",
+                "flex": 2
+              },
+              {
+                "type": "separator"
+              },
+              {
+                "type": "text",
+                "text": "LINE Pay Begins Barcode Payment Service",
+                "gravity": "center",
+                "size": "xs",
+                "flex": 2
+              },
+              {
+                "type": "separator"
+              },
+              {
+                "type": "text",
+                "text": "LINE Adds LINE Wallet",
+                "gravity": "bottom",
+                "size": "xs",
+                "flex": 1
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "More",
+              "uri": "https://linecorp.com"
+            }
+          }
+        ]
+      }
+    }
+    client.reply_message(event['replyToken'], message)
+
+  end
+  #服務選單
+  def template_service(event)
+    message =  {
+        type: 'template',
+        altText: '您有新訊息 ~ ',
+        template: {
+          type: 'carousel',
+          imageAspectRatio:'square',
+          imageSize:'cover',
+          columns: [
+            {
+              title: '鏟屎',
+              text: '快來幫朕鏟屎啊！',
+              thumbnailImageUrl: "https://dvblobcdnjp.azureedge.net//Content/Upload/DailyArticle/Images/2017-03/2c144528-f992-4104-bb9c-3ed474aa012c_m.jpg",
+              imageBackgroundColor: "#a8e8fb",
+              actions: [
+                { label: '想要瞭解', type: 'postback', data: 'more_1' },
+                { label: '我要預約', type: 'postback', data: 'booking_1' }
+              ]
+            },
+            {
+              title: '上飯',
+              text: '快把罐罐放好放滿！',
+              thumbnailImageUrl: "https://i.ytimg.com/vi/UbyGmLpqG-U/maxresdefault.jpg",
+              imageBackgroundColor: "#a8e8fb",
+              actions: [
+                {
+                  type: 'datetimepicker',
+                  label: "Date",
+                  data: 'action=sel&only=date',
+                  mode: 'date',
+                  initial: '2017-06-18',
+                  max: '2100-12-31',
+                  min: '1900-01-01'
+                },
+                {
+                  type: 'datetimepicker',
+                  label: "Time",
+                  data: 'action=sel&only=time',
+                  mode: 'time',
+                  initial: '12:15',
+                  max: '23:00',
+                  min: '10:00'
+                }
+              ]
+            }
+          ]
+        }
+      }
+     client.reply_message(event['replyToken'], message)
+  end
+
+  def mes_Text(event)
+    message_txt = event.message["text"]
+    case message_txt
+      when "我要看兔仔"
+        template_1(event)
+      else
+        message = {
+           type: "text",
+           text: message_txt + "~!!"
+        }
+        client.reply_message(event['replyToken'], message)
+    end
+
+
+  end
+
+  def mes_Image(event)
+    message = {
+       type: 'text',
+       text: event.message['id'] + '是一張圖 ~'
+    }
+    client.reply_message(event['replyToken'], message)
+  end
+
+  def mes_Sticker(event)
+    message = {
+          type: 'sticker',
+          packageId: '1',
+          stickerId:'402'
+    }
+    client.reply_message(event['replyToken'], message)
+  end
+
+  def mes_Location(event)
+     message = {
+       type: 'location',
+       title: event.message['title'] || event.message['address'],
+       address: event.message['address'],
+       latitude: event.message['latitude'],
+       longitude: event.message['longitude']
+    }
+    client.reply_message(event['replyToken'], message)
+  end
+
+  def mes_Audio(event)
+    message = {
+       type: 'text',
+       text: event.message['id'] + '是一個影音檔 ~'
+    }
+    client.reply_message(event['replyToken'], message)
+  end
+
+  def mes_File(event)
+    message = {
+       type: 'text',
+       text: event.message['id'] + '是一個檔案 ~'
+    }
+    client.reply_message(event['replyToken'], message)
+  end
+
+  def mes_Unsupport(event)
+    message = {
+          type: 'text',
+          text:  "哩共蝦咪~"
+        }
+    client.reply_message(event['replyToken'], message)
+  end
 
 
   def webhook
@@ -61,23 +336,13 @@ end
 
   end
 
-  def handle_message(event)
-    case event.type
-    when Line::Bot::Event::MessageType::Image
-    message_id = event.message['id']
-    response = client.get_message_content(message_id)
-    tf = Tempfile.open("content")
-    tf.write(response.body)
-    reply_text(event, "[MessageType::IMAGE]\nid:#{message_id}\nreceived #{tf.size} bytes data")  
-    end
-    
-  end
-  
+
+
 
   # 取得對方說的話
   def received_text
 
-    
+
 
 
     message = params['events'][0]['message']
@@ -115,10 +380,10 @@ end
                        ]
                    }
                  }
-             
 
-              
-              
+
+
+
             when "我有問題"
               message = {
                 "type": "template",
@@ -162,8 +427,8 @@ end
                 text:  message_txt + '~'
               }
             end
-        
-          
+
+
       when "image"
            message = {
           type: 'text',
@@ -197,7 +462,7 @@ end
         }
 
       end
-    
+
   end
 
   # 傳送訊息到 line
