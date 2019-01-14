@@ -114,10 +114,7 @@ class KamigoController < ApplicationController
             size: "full",
             aspectRatio: "20:13",
             aspectMode:"cover",
-            action:{
-              type:"uri"
-              uri:"http://linecorp.com/"
-            }
+            
           },
           body: {
             type: "box",
