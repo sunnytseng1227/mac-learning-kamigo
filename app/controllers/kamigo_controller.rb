@@ -90,7 +90,7 @@ class KamigoController < ApplicationController
 
     message = {
         type: "flex",
-        altText: "this is a flex message",
+        altText: "您有新訊息 ~ ",
         contents: {
 
           type: "bubble",
@@ -123,10 +123,23 @@ class KamigoController < ApplicationController
           body: {
             type: "box",
             layout: "horizontal",
+            spacing: "md",
             contents: [
               {
-                type: "text",
-                text: "Body text",
+                type: "box",
+                text: "vertical",
+                flex:1,
+                contents:[
+                  {
+                    type: "image",
+                    url: "https://pic1.86shop.org/beautychic/20190109-1301/0109coverpic.jpg",
+                    aspectRatio: "4:3",
+                    aspectMode:"cover",
+                    size: "sm",
+                    gravity:"bottom"
+
+                  }
+                ]
               }
             ]
           },
