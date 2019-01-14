@@ -100,7 +100,11 @@ class KamigoController < ApplicationController
             contents: [
               {
                 type: "text",
-                text: "彩妝保養"
+                text: "彩妝保養",
+                weight:"bold",
+                color:"#aaaaaa",
+                size:"md",
+                align:"center"
               }
             ]
           },
