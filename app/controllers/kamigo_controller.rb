@@ -88,107 +88,49 @@ class KamigoController < ApplicationController
   end
   def template_more_1(event)
    message = {
-     "type": "bubble",
-     "header": {
-       "type": "box",
-       "layout": "horizontal",
-       "contents": [
-         {
-           "type": "text",
-           "text": "彩妝保養",
-           "weight": "bold",
-           "color": "#aaaaaa",
-           "size": "md",
-           "align": "center"
-         }
-       ]
-     },
-     "hero": {
-       "type": "image",
-       "url": "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
-       "size": "full",
-       "aspectRatio": "20:13",
-       "aspectMode": "cover",
-       "action": {
-         "type": "uri",
-         "uri": "http://linecorp.com/"
-       }
-     },
-     "body": {
-       "type": "box",
-       "layout": "horizontal",
-       "spacing": "md",
-       "contents": [
-         {
-           "type": "box",
-           "layout": "vertical",
-           "flex": 1,
-           "contents": [
-             {
-               "type": "image",
-               "url": "https://pic1.86shop.org/beautychic/20190109-1301/0109coverpic.jpg",
-               "aspectMode": "cover",
-               "aspectRatio": "4:3",
-               "size": "sm",
-               "gravity": "bottom"
-             },
-             {
-               "type": "image",
-               "url": "https://pic1.86shop.org/beautychic/1108-1015/1108lips.jpg",
-               "aspectMode": "cover",
-               "aspectRatio": "4:3",
-               "margin": "md",
-               "size": "sm"
-             }
-           ]
-         },
-         {
-           "type": "box",
-           "layout": "vertical",
-           "flex": 2,
-           "contents": [
-             {
-               "type": "text",
-               "text": "讓男生立馬中招の十萬伏特電眼！",
-               "gravity": "center",
-               "wrap": true,
-               "size": "md",
-               "flex": 1
-             },
-             {
-               "type": "separator"
-             },
-             
-           
-             {
-               "type": "text",
-               "text": "化妝包少說要有一支！粉嫩鮭魚 甜熟度剛好 ~",
-               "gravity": "center",
-               "wrap": true,
-               "size": "md",
-               "flex": 2
-             },
-             {
-               "type": "separator"
-             }
-           ]
-         }
-       ]
-     },
-     "footer": {
-       "type": "box",
-       "layout": "horizontal",
-       "contents": [
-         {
-           "type": "button",
-           "action": {
-             "type": "uri",
-             "label": "More",
-             "uri": "https://beautychic.86shop.com.tw/category/beauty"
+     
+       type: "bubble",
+       header: {
+         type: "box",
+         layout: "horizontal",
+         contents: [
+           {
+             type: "text",
+             text: "彩妝保養",
+             weight: "bold",
+             color: "#aaaaaa",
+             size: "md",
+             align: "center"
            }
+         ]
+       },
+       hero: {
+         type: "image",
+         url: "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
+         size: "full",
+         aspectRatio: "20:13",
+         aspectMode: "cover",
+         action: {
+           type: "uri",
+           uri: "http://linecorp.com/"
          }
-       ]
-     }
+       },
+       
+       footer: {
+         type: "box",
+         layout: "horizontal",
+         contents: [
+           {
+             type: "button",
+             action: {
+               type: "uri",
+               label: "More",
+               uri: "https://beautychic.86shop.com.tw/category/beauty"
+             }
+           }
+         ]
+       }
+     
    }
     client.reply_message(event['replyToken'], message)
 
