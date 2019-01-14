@@ -86,7 +86,114 @@ class KamigoController < ApplicationController
      }
      client.reply_message(event['replyToken'], message)
   end
+
   def template_more_1(event)
+
+    message = {
+        type: "flex",
+        altText: "您有新訊息 ~ ",
+        contents: {
+
+          type: "bubble",
+          header: {
+            type: "box",
+            layout: "horizontal",
+            contents: [
+              {
+                type: "text",
+                text: "彩妝保養",
+                weight:"bold",
+                size:"md",
+                align:"center"
+              }
+            ]
+          },
+          hero: {
+            type: "image",
+            url: "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
+            size: "full",
+            aspectRatio: "20:13",
+            aspectMode:"cover",
+            action: {
+                      type: "uri",
+                      uri: "http://linecorp.com/"
+                    }
+            
+          },
+
+
+          body: {
+            type: "box",
+            layout: "horizontal",
+            contents: [
+            {
+                type: "box",
+                layout: "vertical",
+                flex:3,
+                contents:[
+                  {
+                    type: "text",
+                    text: "讓男生立馬中招の十萬伏特電眼！",
+                    wrap: true,
+                    flex:3,
+                    size: "md",
+                    gravity:"center",
+                    color:"#aaaaaa",
+                    action: {
+                      type: "uri",
+                      uri: "https://beautychic.86shop.com.tw/beauty/1301"
+                    }
+
+                  },
+                  {
+                              "type": "separator"
+                            },
+                  {
+                    type: "text",
+                    text: "化妝包少說要有一支！粉嫩鮭魚 甜熟度剛好 ~ ",
+                    wrap: true,
+                    flex:3,
+                    size: "md",
+                    gravity:"center",
+                    color:"#aaaaaa",
+                    action: {
+                      type: "uri",
+                      uri: "https://beautychic.86shop.com.tw/beauty/1015"
+                    }
+
+                  }
+                ]
+              }
+
+            ]
+          },
+
+
+          
+          footer: {
+            type: "box",
+            layout: "horizontal",
+            contents: [
+              {
+                    type: "button",
+                    action: {
+                      type: "uri",
+                      label: "More",
+                      uri: "https://beautychic.86shop.com.tw/category/beauty"
+                    }
+              }
+            ]
+          }
+        }
+      }
+
+
+    
+    client.reply_message(event['replyToken'], message)
+
+  end
+
+  def _template_more_1(event)
 
     message = {
         type: "flex",
@@ -164,7 +271,11 @@ class KamigoController < ApplicationController
                     flex:3,
                     size: "md",
                     gravity:"center",
-                    color:"#aaaaaa"
+                    color:"#aaaaaa",
+                    action: {
+                      type: "uri",
+                      uri: "https://beautychic.86shop.com.tw/beauty/1301"
+                    }
 
                   },
                   {
@@ -178,6 +289,10 @@ class KamigoController < ApplicationController
                     size: "md",
                     gravity:"center",
                     color:"#aaaaaa",
+                    action: {
+                      type: "uri",
+                      uri: "https://beautychic.86shop.com.tw/beauty/1015"
+                    }
 
                   }
                 ]
