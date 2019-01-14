@@ -92,87 +92,45 @@ class KamigoController < ApplicationController
         type: "flex",
         altText: "this is a flex message",
         contents: {
-          {
-            "type": "bubble",
-            "header": {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "彩妝保養",
-                  "weight": "bold",
-                  "color": "#aaaaaa",
-                  "size": "md",
-                  "align": "center"
-                }
-              ]
-            },
-            "hero": {
-              "type": "image",
-              "url": "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
-              "size": "full",
-              "aspectRatio": "20:13",
-              "aspectMode": "cover",
-              "action": {
-                "type": "uri",
-                "uri": "http://linecorp.com/"
+
+          type: "bubble",
+          header: {
+            type: "box",
+            layout: "horizontal",
+            contents: [
+              {
+                type: "text",
+                text: "彩妝保養"
               }
-            },
-            "body": {
-              "type": "box",
-              "layout": "horizontal",
-              "spacing": "md",
-              "contents": [
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "flex": 1,
-                  "contents": [
-                    {
-                      "type": "image",
-                      "url": "https://pic1.86shop.org/beautychic/20190109-1301/0109coverpic.jpg",
-                      "aspectMode": "cover",
-                      "aspectRatio": "4:3",
-                      "size": "sm",
-                      "gravity": "bottom"
-                    }
-                  ]
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "flex": 2,
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "讓男生立馬中招の十萬伏特電眼！",
-                      "gravity": "center",
-                      "wrap": true,
-                      "size": "md",
-                      "flex": 1
-                    },
-                    {
-                      "type": "separator"
-                    }
-                  ]
-                }
-              ]
-            },
-            "footer": {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "button",
-                  "action": {
-                    "type": "uri",
-                    "label": "More",
-                    "uri": "https://beautychic.86shop.com.tw/category/beauty"
-                  }
-                }
-              ]
-            }
+            ]
+          },
+          hero: {
+            type: "image",
+            url: "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
+            size: "full",
+            aspectRatio: "4:3"
+          },
+          body: {
+            type: "box",
+            layout: "horizontal",
+            contents: [
+              {
+                type: "text",
+                text: "Body text",
+              }
+            ]
+          },
+          footer: {
+            type: "box",
+            layout: "horizontal",
+            contents: [
+              {
+                type: "text",
+                text: "Footer text",
+                align: "center",
+                color: "#888888"
+              }
+            ]
           }
         }
       }
