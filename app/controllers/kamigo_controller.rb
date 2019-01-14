@@ -146,8 +146,8 @@ class KamigoController < ApplicationController
 
                   },
                   {
-                              "type": "baseline"
-                            },
+                              type: "separator"
+                  },
                   {
                     type: "text",
                     text: "化妝包少說要有一支！粉嫩鮭魚 甜熟度剛好 ~ ",
