@@ -112,7 +112,12 @@ class KamigoController < ApplicationController
             type: "image",
             url: "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
             size: "full",
-            aspectRatio: "4:3"
+            aspectRatio: "20:13",
+            aspectMode:"cover",
+            action:{
+              type:"uri"
+              uri:"http://linecorp.com/"
+            }
           },
           body: {
             type: "box",
@@ -130,7 +135,7 @@ class KamigoController < ApplicationController
             contents: [
               {
                 type: "text",
-                text: "Footer text",
+                text: "More",
                 align: "center",
                 color: "#888888"
               }
