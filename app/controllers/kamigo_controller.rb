@@ -103,7 +103,7 @@ class KamigoController < ApplicationController
                 type: "text",
                 text: "彩妝保養",
                 weight:"bold",
-                size:"md",
+                size:"lg",
                 align:"center"
               }
             ]
@@ -114,10 +114,7 @@ class KamigoController < ApplicationController
             size: "full",
             aspectRatio: "20:13",
             aspectMode:"cover",
-            action: {
-                      type: "uri",
-                      uri: "http://linecorp.com/"
-                    }
+            action: { type: "uri", uri: "http://linecorp.com/" }
             
           },
 
@@ -139,15 +136,10 @@ class KamigoController < ApplicationController
                     size: "lg",
                     gravity:"center",
                     color:"#aaaaaa",
-                    action: {
-                      type: "uri",
-                      uri: "https://beautychic.86shop.com.tw/beauty/1301"
-                    }
+                    action: { type: "uri", uri: "https://beautychic.86shop.com.tw/beauty/1301" }
 
                   },
-                  {
-                              type: "separator"
-                  },
+                  { type: "separator"},
                   {
                     type: "text",
                     text: "\n化妝包少說要有一支！粉嫩鮭魚 甜熟度剛好 ~ ",
@@ -156,10 +148,7 @@ class KamigoController < ApplicationController
                     size: "lg",
                     gravity:"center",
                     color:"#aaaaaa",
-                    action: {
-                      type: "uri",
-                      uri: "https://beautychic.86shop.com.tw/beauty/1015"
-                    }
+                    action: { type: "uri", uri: "https://beautychic.86shop.com.tw/beauty/1015" }
 
                   }
                 ]
@@ -176,11 +165,7 @@ class KamigoController < ApplicationController
             contents: [
               {
                     type: "button",
-                    action: {
-                      type: "uri",
-                      label: "More",
-                      uri: "https://beautychic.86shop.com.tw/category/beauty"
-                    }
+                    action: {  type: "uri", label: "More", uri: "https://beautychic.86shop.com.tw/category/beauty" }
               }
             ]
           }
