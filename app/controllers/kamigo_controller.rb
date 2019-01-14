@@ -91,8 +91,8 @@ class KamigoController < ApplicationController
 
               type: "bubble",
               altText: "您有新訊息 ~ ",
-              header: {
-                type: "bubble",
+
+              
                 header: {
                   type: "box",
                   layout: "horizontal",
@@ -107,17 +107,7 @@ class KamigoController < ApplicationController
                     }
                   ]
                 },
-                hero: {
-                  type: "image",
-                  url: "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
-                  size: "full",
-                  aspectRatio: "20:13",
-                  aspectMode:"cover",
-                  action:{
-                    type:"uri",
-                    uri:"http://linecorp.com/"
-                  }
-                },
+                
                 footer: {
                   type: "box",
                   layout: "horizontal",
@@ -125,14 +115,14 @@ class KamigoController < ApplicationController
                     {
                       type: "button",
                       action:{
-                        type:"uri",
-                        label: "More",
-                        uri: "https://beautychic.86shop.com.tw/category/beauty"
+                          type:"uri",
+                          label: "More",
+                          uri: "https://beautychic.86shop.com.tw/category/beauty"
                     }
                     }
                   ]
                 }
-              }
+              
             }
     client.reply_message(event['replyToken'], message)
 
