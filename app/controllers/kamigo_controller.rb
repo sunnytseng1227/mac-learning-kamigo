@@ -155,13 +155,13 @@ class KamigoController < ApplicationController
               {
                 type: "box",
                 layout: "vertical",
-                flex:2,
+                flex:3,
                 contents:[
                   {
                     type: "text",
                     text: "讓男生立馬中招の十萬伏特電眼！",
                     wrap: true,
-                    flex:1,
+                    flex:3,
                     size: "md",
                     gravity:"center",
                     color:"#aaaaaa"
@@ -174,7 +174,7 @@ class KamigoController < ApplicationController
                     type: "text",
                     text: "化妝包少說要有一支！粉嫩鮭魚 甜熟度剛好 ~ ",
                     wrap: true,
-                    flex:1,
+                    flex:3,
                     size: "md",
                     gravity:"center",
                     color:"#aaaaaa",
