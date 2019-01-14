@@ -133,7 +133,7 @@ class KamigoController < ApplicationController
                 contents:[
                   {
                     type: "text",
-                    text: "讓男生立馬中招の十萬伏特電眼！教你如何挑選最適合自己的美瞳款式～\n\n",
+                    text: "讓男生立馬中招の十萬伏特電眼！教你如何挑選最適合自己的美瞳款式～\n",
                     wrap: true,
                     flex:3,
                     size: "lg",
@@ -150,7 +150,7 @@ class KamigoController < ApplicationController
                   },
                   {
                     type: "text",
-                    text: "化妝包少說要有一支！粉嫩鮭魚 甜熟度剛好 ~ ",
+                    text: "\n化妝包少說要有一支！粉嫩鮭魚 甜熟度剛好 ~ ",
                     wrap: true,
                     flex:3,
                     size: "lg",
