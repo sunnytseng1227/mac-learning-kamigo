@@ -102,7 +102,6 @@ class KamigoController < ApplicationController
                 type: "text",
                 text: "彩妝保養",
                 weight:"bold",
-                color:"#aaaaaa",
                 size:"md",
                 align:"center"
               }
@@ -164,16 +163,21 @@ class KamigoController < ApplicationController
                     wrap: true,
                     flex:1,
                     size: "md",
-                    gravity:"center"
+                    gravity:"center",
+                    color:"#aaaaaa"
 
                   },
                   {
+                              "type": "separator"
+                            },
+                  {
                     type: "text",
-                    text: "讓男生立馬中招の十萬伏特電眼！",
+                    text: "化妝包少說要有一支！粉嫩鮭魚 甜熟度剛好 ~ ",
                     wrap: true,
                     flex:1,
                     size: "md",
-                    gravity:"center"
+                    gravity:"center",
+                    color:"#aaaaaa",
 
                   }
                 ]
