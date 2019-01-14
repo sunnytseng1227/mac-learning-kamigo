@@ -90,8 +90,7 @@ class KamigoController < ApplicationController
 
     message = {
         type: "flex",
-        
-
+        altText: "this is a flex message",
         contents: {
           type: "bubble",
           header: {
@@ -106,9 +105,14 @@ class KamigoController < ApplicationController
           },
           hero: {
             type: "image",
-            url: HORIZONTAL_THUMBNAIL_URL,
+            url: "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
             size: "full",
-            aspectRatio: "4:3"
+            aspectRatio: "20:13",
+            aspectMode:"cover",
+            action:{
+              type:"uri",
+              uri:"http://linecorp.com/"
+            }
           },
           body: {
             type: "box",
