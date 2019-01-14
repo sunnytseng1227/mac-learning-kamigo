@@ -89,17 +89,21 @@ class KamigoController < ApplicationController
   def template_more_1(event)
     message ={
 
-              type: "flex",
-              altText: "this is a flex message",
-              contents: {
+              type: "bubble",
+              altText: "您有新訊息 ~ ",
+              header: {
                 type: "bubble",
                 header: {
                   type: "box",
-                  layout: "vertical",
+                  layout: "horizontal",
                   contents: [
                     {
                       type: "text",
-                      text: "Header text"
+                      text: "彩妝保養",
+                      weight: "bold",
+                      color: "#aaaaaa",
+                      size: "md",
+                      align: "center"
                     }
                   ]
                 },
@@ -107,27 +111,24 @@ class KamigoController < ApplicationController
                   type: "image",
                   url: "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
                   size: "full",
-                  aspectRatio: "4:3"
-                },
-                body: {
-                  type: "box",
-                  layout: "vertical",
-                  contents: [
-                    {
-                      type: "text",
-                      text: "Body text",
-                    }
-                  ]
+                  aspectRatio: "20:13",
+                  aspectMode:"cover",
+                  action:{
+                    type:"uri",
+                    uri:"http://linecorp.com/"
+                  }
                 },
                 footer: {
                   type: "box",
-                  layout: "vertical",
+                  layout: "horizontal",
                   contents: [
                     {
-                      type: "text",
-                      text: "Footer text",
-                      align: "center",
-                      color: "#888888"
+                      type: "button",
+                      action:{
+                        type:"uri",
+                        label: "More",
+                        uri: "https://beautychic.86shop.com.tw/category/beauty"
+                    }
                     }
                   ]
                 }
