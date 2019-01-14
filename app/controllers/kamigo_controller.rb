@@ -131,10 +131,13 @@ class KamigoController < ApplicationController
             layout: "horizontal",
             contents: [
               {
-                type: "text",
-                text: "More",
-                align: "center",
-                color: "#888888"
+                    type: "button",
+                    style: "primary",
+                    action: {
+                      type: "uri",
+                      label: "More",
+                      uri: "https://beautychic.86shop.com.tw/category/beauty"
+                    }
               }
             ]
           }
