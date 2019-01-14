@@ -89,20 +89,22 @@ class KamigoController < ApplicationController
   def template_more_1(event)
 
     message = {
-        type: "flex",
+        type: "bubble",
         altText: "this is a flex message",
-        contents: {
-          type: "bubble",
           header: {
-            type: "box",
-            layout: "vertical",
-            contents: [
-              {
-                type: "text",
-                text: "Header text"
-              }
-            ]
-          },
+                      type: "box",
+                      layout: "horizontal",
+                      contents: [
+                        {
+                          type: "text",
+                          text: "彩妝保養",
+                          weight:"bold",
+                          color:"#aaaaaa",
+                          size:"md",
+                          align:"center"
+                        }
+                      ]
+                    },
           hero: {
             type: "image",
             url: "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
@@ -116,7 +118,7 @@ class KamigoController < ApplicationController
           },
           body: {
             type: "box",
-            layout: "vertical",
+            layout: "horizontal",
             contents: [
               {
                 type: "text",
@@ -126,7 +128,7 @@ class KamigoController < ApplicationController
           },
           footer: {
             type: "box",
-            layout: "vertical",
+            layout: "horizontal",
             contents: [
               {
                 type: "text",
@@ -137,7 +139,7 @@ class KamigoController < ApplicationController
             ]
           }
         }
-      }
+      
 
 
     
