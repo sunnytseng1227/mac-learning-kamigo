@@ -113,7 +113,11 @@ class KamigoController < ApplicationController
             url: "https://image.japaholic.com/article/images/2016/12/ExLauE1481894887674_5874_2.jpg",
             size: "full",
             aspectRatio: "20:13",
-            aspectMode:"cover"
+            aspectMode:"cover",
+            action: {
+                      type: "uri",
+                      uri: "http://linecorp.com/"
+                    }
             
           },
           body: {
@@ -132,7 +136,6 @@ class KamigoController < ApplicationController
             contents: [
               {
                     type: "button",
-                    style: "primary",
                     action: {
                       type: "uri",
                       label: "More",
