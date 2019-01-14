@@ -121,7 +121,7 @@ class KamigoController < ApplicationController
             
           },
 
-          
+
           body: {
             type: "box",
             layout: "horizontal",
@@ -141,7 +141,27 @@ class KamigoController < ApplicationController
 
                   }
                 ]
+              },
+              {
+                type: "box",
+                layout: "vertical",
+                flex:2,
+                contents:[
+                  {
+                    type: "text",
+                    text: "讓男生立馬中招の十萬伏特電眼！",
+                    wrap: true,
+                    flex:1,
+                    size: "md",
+                    gravity:"center"
+
+                  },
+                  {
+                    "type": "separator"
+                  }
+                ]
               }
+
             ]
           },
 
